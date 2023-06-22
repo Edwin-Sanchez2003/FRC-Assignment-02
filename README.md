@@ -19,7 +19,7 @@ When things feel too cluttered, its probably because it is. Use functions to bre
 Now that you know how to clean up code and format it to be easier to work with, its time to get your hands dirty. Create your own `Menu` class (you can use my code, but if you want to challenge yourself, try to write it from scratch). Change the tasks that the menu lets you do.
 
 ### Goals:
-* Create 3 new tasks for the menu
+* Create 3 new tasks for the menu.
 * At least two variables need to interact in some way (like how we use the dog’s name when we play fetch with it).
 * Use good naming conventions, good comments, and reasonable abstractions to make your code easier to read.
 
