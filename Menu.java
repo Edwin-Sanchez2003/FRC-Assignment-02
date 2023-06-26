@@ -11,7 +11,7 @@
  *      - play fetch with the dog
 */
 
-// Scanner - used to read input from the terminal
+// Dependencies/Libraries/Imports
 import java.lang.Math;
 import java.util.Scanner;
 
