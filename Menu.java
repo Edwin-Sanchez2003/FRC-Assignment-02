@@ -25,48 +25,23 @@ public class Menu {
         float bankAccountBalance = 0.0f; // how much money we have
 
         // Display menu to the user until the wish to exit
-        boolean keepGoing = true;
+        boolean keepGoing = true; // sentry
         while(keepGoing) {
-            // print menu options
-            System.out.println("----------------");
-            System.out.println("    My Menu     ");
-            System.out.println("----------------\n");
-
-            System.out.println("0: Exit");
-            System.out.println("1: Edit Bank Account");
-            System.out.println("2: Rename Dog");
-            System.out.println("3: Play fetch with da dog");
-            System.out.println("----------------\n");
+            // print the menu to the terminal for the user to see
+            drawMenu();
 
             // get input from the user
             // blocks execution of code - waits for user input in the terminal
             input = iScanner.nextLine();
-            
+
             // check user input
             if(input.equals("0")) { // end while loop - exit the program
                 System.out.println("Goodbye!");
                 keepGoing = false;
             } else if(input.equals("1")) { // Edit Bank Account
-
-                // print out the user's current bank account
-                System.out.println(
-                    String.format(
-                        "Your current balance is: $%f", 
-                        bankAccountBalance
-                    ) // end formatted string
-                ); // end print command
-
-                // get new account balance from the user
-                bankAccountBalance = Float.parseFloat(iScanner.nextLine());
-
-                // print new account balance
-                // print out the user's current bank account
-                System.out.println(
-                    String.format(
-                        "Your current balance is: $%f", 
-                        bankAccountBalance
-                    ) // end formatted string
-                ); // end print command
+                
+                bankAccountBalance = editBankAccount(bankAccountBalance, iScanner);
+            
             } else if(input.equals("2")) { // Rename Dog
                 
                 // print out current dog name
@@ -110,4 +85,47 @@ public class Menu {
         // close the scanner
         iScanner.close();
     } // end main
+
+    private static void drawMenu() {
+        // print menu options
+        System.out.println("----------------");
+        System.out.println("    My Menu     ");
+        System.out.println("----------------\n");
+
+        System.out.println("0: Exit");
+        System.out.println("1: Edit Bank Account");
+        System.out.println("2: Rename Dog");
+        System.out.println("3: Play fetch with da dog");
+        System.out.println("----------------\n");
+    } // end drawMenu
+
+    // allows the user to edit their bank account
+    private static float editBankAccount(float bankAccountBalance, Scanner iScanner) {
+        // print out the user's current bank account
+        System.out.println(
+            String.format(
+                "Your current balance is: $%f", 
+                bankAccountBalance
+            ) // end formatted string
+        ); // end print command
+
+        // get new account balance from the user
+        bankAccountBalance = Float.parseFloat(iScanner.nextLine());
+
+        // check if the user's input is less than zero
+        if(bankAccountBalance < 0.0f) {
+            bankAccountBalance = 0.0f; // set bank Account balance to zero
+        } // end if
+
+        // print new account balance
+        // print out the user's current bank account
+        System.out.println(
+            String.format(
+                "Your current balance is: $%f", 
+                bankAccountBalance
+            ) // end formatted string
+        ); // end print command
+
+        return bankAccountBalance;
+    } // end editBankAccount
 } // end Menu class
